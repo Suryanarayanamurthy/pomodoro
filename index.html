@@ -1,23 +1,39 @@
 <!doctype html>
-<html ng-app="pomodoroApp">
-  <head>
-    <title>Pomodoro App</title>
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script> -->
-    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <script src="src/pomodoroApp.js"></script>
+<html lang="en">
+<head>
+<link rel="stylesheet" type="text/css" href="pomodoro.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+<link rel="stylesheet" type="text/css" href="css/pomodoro.css">
+<script src="src/pomodoroApp.js"></script>
 
-  </head>
-  <body>
-    <div>
-      <label>Name:</label>
-      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-      <hr>
-      <h1>Hello {{yourName}}! welcome to pomodoro...</h1>
-
+</head>
+<body>
+<div class='wrapper'>
+  <div class='align-wrap'>
+    <div class='align'>
+      <div class='group'>
+        <div class='left'>
+          <h3 class='break'>break</h3>
+          <h2><a id='breakMinus' href="#">-</a><span id='breakMinutes'></span><a id='breakPlus' href="#">+</a></h2>
+        </div>
+        <div class='right'>
+          <h3 class='session'>session</h3>
+          <h2><a id='sessionMinus' href="#">-</a><span id='sessionMinutes'></span><a id='sessionPlus' href="#">+</a></h2>
+        </div>
+      </div>
+      <div class='clock'>
+        <h1 class='timer' id='timer'></h1>
+        <button class='button' id='start'>start</button>
+        <button class='button left' id='pause'>pause</button>
+        <button class='button right' id='reset'>reset</button>
+        <button class='button' id='startBreak'>start</button>
+        <button class='button left' id='pauseBreak'>pause</button>
+        <button class='button right' id='resetBreak'>reset</button>
+      </div>
     </div>
-    <div ng-controller="TestController as ts">
-      {{ts.test}}
-    </div>
-  </body>
+  </div>
+</div>
+</body>
 </html>
