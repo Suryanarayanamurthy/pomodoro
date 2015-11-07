@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="pomoapp">
 <head>
 <link rel="stylesheet" type="text/css" href="pomodoro.css">
 <!-- Latest compiled and minified CSS -->
@@ -10,30 +10,30 @@
 
 </head>
 <body>
-<div class='wrapper'>
-  <div class='align-wrap'>
-    <div class='align'>
-      <div class='group'>
-        <div class='left'>
-          <h3 class='break'>break</h3>
+<div class="container-fluid">
+    <div class="row"></strong>
+        <strong class="col-md-offset-3">Welcome to Pomodoro App... know more about <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique" target="_blank">pomodoro method. </a> </strong>
+        <hr>
+    </div>
+  <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-md-offset-3">
+          <h3 class="break">break</h3>
           <h2><a id='breakMinus' href="#">-</a><span id='breakMinutes'></span><a id='breakPlus' href="#">+</a></h2>
         </div>
-        <div class='right'>
-          <h3 class='session'>session</h3>
+        <div class="col-md-3 col-md-offset-3">
+          <h3 class="session">session</h3>
           <h2><a id='sessionMinus' href="#">-</a><span id='sessionMinutes'></span><a id='sessionPlus' href="#">+</a></h2>
         </div>
-      </div>
-      <div class='clock'>
-        <h1 class='timer' id='timer'></h1>
-        <button class='button' id='start'>start</button>
-        <button class='button left' id='pause'>pause</button>
-        <button class='button right' id='reset'>reset</button>
-        <button class='button' id='startBreak'>start</button>
-        <button class='button left' id='pauseBreak'>pause</button>
-        <button class='button right' id='resetBreak'>reset</button>
-      </div>
     </div>
-  </div>
+    <div class="row">
+        <h1 class="timer col-md-offset-4" id='timer'>time comes here</h1>
+    </div>
+    <div class="row">
+        <button class="col-md-2 col-md-offset-3">play</button>
+        <button class="col-md-2 col-md-offset-3">pause</button>
+    </div>
 </div>
 </body>
 </html>
