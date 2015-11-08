@@ -1,3 +1,8 @@
+@import "bourbon";
+
+@import url(http://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300);
+
+var app = angular.module('pomoapp',[]);
 
 (function () {
 'use strict';
