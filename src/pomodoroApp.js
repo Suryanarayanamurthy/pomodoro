@@ -12,7 +12,11 @@ app.controller("AppController",function(){
       (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s
     ); 
   }
-    $scope
+    var time;
+    $scope.updateSecessionTime = function(time)
+    {
+        
+    }
     
 });
 
