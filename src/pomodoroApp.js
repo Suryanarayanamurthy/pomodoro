@@ -1,5 +1,5 @@
 var app = angular.module('PomodoroApp', []);
-app.controller('MainCtrl', function($scope, $interval) {
+app.controller("AppController", function($scope, $interval) {
   $scope.breakLength = 5;
   $scope.sessionLength = 25;
   $scope.timeLeft = $scope.sessionLength;
@@ -7,9 +7,17 @@ app.controller('MainCtrl', function($scope, $interval) {
   $scope.sessionName = 'Session';
   $scope.currentTotal;
 
+
   var runTimer = false;
   var secs = 60 * $scope.timeLeft;
+  var secession = "work";
   $scope.originalTime = $scope.sessionLength;
+
+  function formatTime(secs){
+    $scope.minutes = Math.floor(time / 60);
+    $scope.seconds = time - minutes * 60;
+    //$scope.timer = minutes +":"+seconds;
+  }
 
   function secondsToHms(d) {
     d = Number(d);

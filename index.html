@@ -21,7 +21,10 @@
     <div class="row">
         <div class="col-md-3 col-md-offset-3">
           <h3 class="break">break</h3>
-          <h2><a id='breakMinus' href="#">-</a><span id='breakMinutes'></span><a id='breakPlus' href="#">+</a></h2>
+          <!-- <h2><a id='breakMinus' href="#">-</a><span id='breakMinutes'></span><a id='breakPlus' href="#">+</a></h2> -->
+          <div>
+          <button>-</button><span></span><button>+</button>
+          </div>
         </div>
         <div class="col-md-3 col-md-offset-3">
           <h3 class="session">session</h3>
@@ -29,11 +32,11 @@
         </div>
     </div>
     <div class="row">
-        <h1 class="timer col-md-offset-4" id='timer'>time comes here</h1>
+        <h1 class="timer col-md-offset-4" id='timer'>{{hours + ":" + minutes}}</h1>
     </div>
     <div class="row">
-        <button class="col-md-2 col-md-offset-3">play</button>
-        <button class="col-md-2 col-md-offset-3">pause</button>
+        <button class="col-md-2 col-md-offset-3" ng-click="play">play</button>
+        <button class="col-md-2 col-md-offset-3" ng-click="pause">pause</button>
     </div>
 </div>
 </body>
