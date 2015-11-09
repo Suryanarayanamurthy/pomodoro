@@ -1,4 +1,5 @@
-var app = angular.module('PomodoroApp', []);
+// var app = angular.module('PomodoroApp', []);
+var app = angular.module('PomodoroApp', ['ngRoute']);
 app.controller("AppController", function($scope, $interval) {
   $scope.breaktime =5;
   $scope.worktimw =25;
