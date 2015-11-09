@@ -1,5 +1,7 @@
 var app = angular.module('PomodoroApp', []);
 app.controller("AppController", function($scope, $interval) {
+  $scope.breaktime =5;
+  $scope.worktimw =25;
   $scope.breakLength = 5;
   $scope.sessionLength = 25;
   $scope.timeLeft = $scope.sessionLength;
