@@ -1,8 +1,8 @@
 // var app = angular.module('PomodoroApp', []);
 var app = angular.module('PomodoroApp', ['ngRoute']);
-app.controller("AppController", function($scope, $interval) {
+app.controller("AppController", function($scope, $interval, $timeout) {
   $scope.breaktime =5;
-  $scope.worktimw =25;
+  $scope.worktime =25;
   $scope.breakLength = 5;
   $scope.sessionLength = 25;
   $scope.timeLeft = $scope.sessionLength;
@@ -21,6 +21,18 @@ app.controller("AppController", function($scope, $interval) {
     $scope.seconds = time - minutes * 60;
     //$scope.timer = minutes +":"+seconds;
   }
+
+  var counter = 10000;
+  $scope.play = function() {
+    
+    // stopped = $timeout(function() {
+    //   // console.log($scope.counter);
+    //   formatTime(counter);
+    //  $scope.counter--;
+    //  $scope.countdown();
+    // }, 1000);
+  };
+
 
   function secondsToHms(d) {
     d = Number(d);
