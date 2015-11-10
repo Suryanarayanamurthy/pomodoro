@@ -3,10 +3,10 @@ var app = angular.module('PomodoroApp', ['ngRoute']);
 app.controller("AppController", function($scope, $interval, $timeout) {
   $scope.breaktime =5;
   $scope.worktime =25;
-  $scope.breakLength = 5;
-  $scope.sessionLength = 25;
-  $scope.timeLeft = $scope.sessionLength;
-  $scope.fillHeight = '0%';
+  $scope.minutes=25;
+  $scope.seconds=00;
+  //$scope.timeLeft = $scope.sessionLength;
+
   $scope.sessionName = 'Session';
   $scope.currentTotal;
 
@@ -16,21 +16,33 @@ app.controller("AppController", function($scope, $interval, $timeout) {
   var secession = "work";
   $scope.originalTime = $scope.sessionLength;
 
-  function formatTime(secs){
-    $scope.minutes = Math.floor(time / 60);
-    $scope.seconds = time - minutes * 60;
+  function ShowTime(secs){
+    $scope.minutes = Math.floor(secs / 60);
+    $scope.seconds = secs - minutes * 60;
     //$scope.timer = minutes +":"+seconds;
   }
 
   var counter = 10000;
+  var promise;
   $scope.play = function() {
-    
-    // stopped = $timeout(function() {
-    //   // console.log($scope.counter);
-    //   formatTime(counter);
-    //  $scope.counter--;
-    //  $scope.countdown();
-    // }, 1000);
+
+    if(secession = "work")
+    {
+      
+    promise = $interval(ShowTime($scope.sessionLength),1000);
+  }
+    else {
+      promise = $interval(ShowTime($scope.breakLength),1000);
+    }
+  };
+  function WorkSecessionSecs()
+  {
+    var workSecs = $scope.seconds + ($scope.minutes *60);
+    return workSecs;
+  };
+  function breakSecessionSecs()
+  {
+
   };
 
 
