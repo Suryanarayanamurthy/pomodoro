@@ -39,6 +39,17 @@ app.controller("AppController", function($scope, $interval, $timeout) {
   {
      $interval.cancel(promise);
   };
+  $scope.reset = function()
+  {
+    $interval.cancel(promise);
+  $scope.breaktime =5;
+  $scope.worktime =25;
+  $scope.minutes=25;
+  $scope.seconds=00;
+
+   timeLeft = $scope.worktime * 60;
+  secession = "work";
+}
   
   $scope.workUpdated = function()
   {
