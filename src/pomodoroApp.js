@@ -1,144 +1,58 @@
-// var app = angular.module('PomodoroApp', []);
+
 var app = angular.module('PomodoroApp', ['ngRoute']);
 app.controller("AppController", function($scope, $interval, $timeout) {
   $scope.breaktime =5;
   $scope.worktime =25;
   $scope.minutes=25;
   $scope.seconds=00;
-  //$scope.timeLeft = $scope.sessionLength;
 
-  $scope.sessionName = 'Session';
-  $scope.currentTotal;
-
-
-  var runTimer = false;
-  var secs = 60 * $scope.timeLeft;
+  var timeLeft = $scope.worktime * 60;
   var secession = "work";
-  $scope.originalTime = $scope.sessionLength;
-
-  function ShowTime(secs){
-    $scope.minutes = Math.floor(secs / 60);
-    $scope.seconds = secs - minutes * 60;
-    //$scope.timer = minutes +":"+seconds;
-  }
-
-  var counter = 10000;
   var promise;
-  $scope.play = function() {
 
-    if(secession = "work")
+  var wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
+  var audio = new Audio(wav);
+		
+  
+  function ShowTime(){
+    $scope.minutes = Math.floor(timeLeft / 60);
+    $scope.seconds = timeLeft - ($scope.minutes * 60);
+    timeLeft -= 1;
+    if(secession == "work" && timeLeft <= 0)
     {
-      
-    promise = $interval(ShowTime($scope.sessionLength),1000);
-  }
-    else {
-      promise = $interval(ShowTime($scope.breakLength),1000);
+      secession = "play";
+      timeLeft = $scope.breaktime * 60;
+      	audio.play();
     }
+    else if(secession == "play" && timeLeft <= 0)
+    {
+      secession = "work";
+      timeLeft = $scope.worktime * 60;
+      audio.play();
+    }
+   };
+
+  $scope.play = function() {
+    promise = $interval(ShowTime,1000,0);
   };
-  function WorkSecessionSecs()
+  $scope.pause = function()
   {
-    var workSecs = $scope.seconds + ($scope.minutes *60);
-    return workSecs;
+     $interval.cancel(promise);
   };
-  function breakSecessionSecs()
+  
+  $scope.workUpdated = function()
   {
+  if(secession == "work")
+  timeLeft = $scope.worktime*60;
 
-  };
-
-
-  function secondsToHms(d) {
-    d = Number(d);
-    var h = Math.floor(d / 3600);
-    var m = Math.floor(d % 3600 / 60);
-    var s = Math.floor(d % 3600 % 60);
-    return (
-      (h > 0 ? h + ":" + (m < 10 ? "0" : "") : "") + m + ":" + (s < 10 ? "0" : "") + s
-    );
+  if($scope.worktime < 0) $scope.worktime = 0;
   }
 
-  // Change default session length
-  $scope.sessionLengthChange = function(time) {
-    if (!runTimer){
-      if ($scope.sessionName === 'Session') {
-        $scope.sessionLength += time;
-        if ($scope.sessionLength < 0) {
-          $scope.sessionLength = 0;
-        }
-        $scope.timeLeft = $scope.sessionLength;
-        $scope.originalTime = $scope.sessionLength;
-        secs = 60 * $scope.sessionLength;
-      }
-    }
+  $scope.playUpdated = function()
+  {
+    if(secession == "play")
+    timeLeft = $scope.breaktime *60;
+    
+    if($scope.breaktime < 0 ) $scope.breaktime =0;
   }
-
-  // Change default break length
-  $scope.breakLengthChange = function(time) {
-    if (!runTimer){
-      $scope.breakLength += time;
-      if ($scope.breakLength < 0) {
-        $scope.breakLength = 0;
-      }
-      if ($scope.sessionName === 'Break!') {
-        $scope.timeLeft = $scope.breakLength;
-        $scope.originalTime = $scope.breakLength;
-        secs = 60 * $scope.breakLength;
-      }
-    }
-  }
-
-  $scope.toggleTimer = function() {
-    if (!runTimer) {
-      if ($scope.currentName === 'Sesson') {
-        $scope.currentLength = $scope.sessionLength;
-      } else {
-        $scope.currentLength = $scope.breakLength;
-      }
-
-      updateTimer();
-      runTimer = $interval(updateTimer, 1000);
-    } else {
-      $interval.cancel(runTimer);
-      runTimer = false;
-    }
-  }
-
-  function updateTimer() {
-    secs -= 1;
-    if (secs < 0) {
-      // countdown is finished
-
-      // Play audio
-      var wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
-      var audio = new Audio(wav);
-			audio.play();
-
-      // toggle break and session
-      $scope.fillColor = '#333333';
-      if ($scope.sessionName === 'Break!') {
-        $scope.sessionName = 'Session';
-        $scope.currentLength = $scope.sessionLength;
-        $scope.timeLeft = 60 * $scope.sessionLength;
-        $scope.originalTime = $scope.sessionLength;
-        secs = 60 * $scope.sessionLength;
-      } else {
-        $scope.sessionName = 'Break!';
-        $scope.currentLength = $scope.breakLength;
-        $scope.timeLeft = 60 * $scope.breakLength;
-        $scope.originalTime = $scope.breakLength;
-        secs = 60 * $scope.breakLength;
-      }
-    } else {
-      if ($scope.sessionName === 'Break!') {
-        $scope.fillColor = '#FF4444';
-      } else {
-        $scope.fillColor = '#99CC00';
-      }
-	    $scope.timeLeft = secondsToHms(secs);
-
-      var denom = 60 * $scope.originalTime;
-      var perc = Math.abs((secs / denom) * 100 - 100);
-      $scope.fillHeight = perc + '%';
-    }
-  }
-
 });
