@@ -36,8 +36,6 @@ h3 {
     font-weight: 500;
     line-height: 15.4px;
 }
-
-}
 a {
     color: white;
     text-decoration: underline;
@@ -105,17 +103,26 @@ button:focus {
     width: 41px;
     height: 25px;
     text-align: center;
+    text-decoration: none;
+        display: inline-block;
+        padding: 2px 8px;
+        background-color: grey;
     }
     #session button{
     width: 41px;
     height: 25px;
     text-align: center;
+     text-decoration: none;
+        display: inline-block;
+        padding: 2px 8px;
+        background-color: grey;
     }
 
 #options button{
     text-align: center;
     width:130px;
     height:100px;
+    background-color: grey;
 }
 #break , #session{
     width:130px;
@@ -128,6 +135,6 @@ button:focus {
 }
 span {
     font-size: 25px;
-    padding: 10px;
+    padding: 10px 8px 10px 8px;
 
 }
