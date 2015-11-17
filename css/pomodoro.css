@@ -5,6 +5,11 @@ body {
     margin: 0;
     font-family: Droid Sans;
 }
+.container-fluid{
+    background-color: #ffffff;
+    margin: 10px 15px 10px 15px;
+    height: 500px;
+}
 h1 {
     font-family: 'Droid Sans';
     font-size: 24px;
@@ -72,18 +77,19 @@ a:hover {
     display: table-cell;
 }
 .timer {
-    padding: 110px 0;
-    font-weight: 400;
-    font-size: 4em;
+    margin-top: 100px;
+    padding: 50px;
+    text-align: center;
+    font-size: 50px;
+
 }
 button {
-    width: 50px;
+    width: 100px;
     height: 50px;
-    display: inline-block;
-    border: solid thin white;
+    border: solid thin #000;
     text-transform: uppercase;
     background: transparent;
-    color: white;
+    color: #000;
     display: inline;
 }
 button:hover {
@@ -93,6 +99,35 @@ button:hover {
 button:focus {
     outline: none;
 }
-ul{
-    list-style-type: none;
+
+
+#break button{
+    width: 41px;
+    height: 25px;
+    text-align: center;
+    }
+    #session button{
+    width: 41px;
+    height: 25px;
+    text-align: center;
+    }
+
+#options button{
+    text-align: center;
+    width:130px;
+    height:100px;
+}
+#break , #session{
+    width:130px;
+    height:100px;
+    float:left;
+}
+
+#customise{
+    margin-left :100px;
+}
+span {
+    font-size: 25px;
+    padding: 10px;
+
 }
