@@ -4,7 +4,7 @@ app.controller("AppController", function($scope, $interval, $timeout) {
   $scope.breaktime =5;
   $scope.worktime =25;
   $scope.minutes=25;
-  $scope.seconds=00;
+  $scope.seconds=0;
 
   var timeLeft = $scope.worktime * 60;
   var secession = "work";
@@ -12,8 +12,8 @@ app.controller("AppController", function($scope, $interval, $timeout) {
 
   var wav = 'http://www.oringz.com/oringz-uploads/sounds-917-communication-channel.mp3';
   var audio = new Audio(wav);
-		
-  
+
+
   function ShowTime(){
     $scope.minutes = Math.floor(timeLeft / 60);
     $scope.seconds = timeLeft - ($scope.minutes * 60);
@@ -50,7 +50,7 @@ app.controller("AppController", function($scope, $interval, $timeout) {
    timeLeft = $scope.worktime * 60;
   secession = "work";
 }
-  
+
   $scope.workUpdated = function()
   {
   if(secession == "work")
@@ -63,7 +63,7 @@ app.controller("AppController", function($scope, $interval, $timeout) {
   {
     if(secession == "play")
     timeLeft = $scope.breaktime *60;
-    
+
     if($scope.breaktime < 0 ) $scope.breaktime =0;
   }
 });

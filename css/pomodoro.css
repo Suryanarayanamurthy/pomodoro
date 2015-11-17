@@ -3,22 +3,39 @@ body {
     background: #F44336;
     padding: 0;
     margin: 0;
+    font-family: Droid Sans;
 }
-h1,
-h2,
+h1 {
+    font-family: 'Droid Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+    text-align: center;
+}
+.row{
+    font-family: 'Droid Sans';
+    font-size: 24px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 26.4px;
+    text-align: center;
+}
 h3 {
-    color: white;
-    font-family: 'Lato';
-    font-weight: 300;
-    line-height: 1.1;
-    letter-spacing: 0.025em;
-    text-transform: uppercase;
-    padding: 0;
-    margin: 0;
+    font-family: 'Droid Sans';
+    font-size: 14px;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: 500;
+    line-height: 15.4px;
+}
+
 }
 a {
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
     opacity: 0.7;
 }
 a:hover {
@@ -59,18 +76,23 @@ a:hover {
     font-weight: 400;
     font-size: 4em;
 }
-.button {
-    width: 100px;
-    height: 45px;
+button {
+    width: 50px;
+    height: 50px;
+    display: inline-block;
     border: solid thin white;
     text-transform: uppercase;
     background: transparent;
     color: white;
+    display: inline;
 }
-.button:hover {
+button:hover {
     background: white;
     color: #F44336;
 }
-.button:focus {
+button:focus {
     outline: none;
+}
+ul{
+    list-style-type: none;
 }
