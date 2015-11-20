@@ -155,3 +155,22 @@ span {
     font-size: 25px;
     padding: 10px 8px 10px 8px;
 }
+
+.center {
+    margin: auto;
+    width: 60%;
+    border:3px solid #8AC007;
+    padding: 10px;
+}
+
+html, body, .container {
+    height: 100%;
+}
+.container {
+    display: table;
+    vertical-align: middle;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
