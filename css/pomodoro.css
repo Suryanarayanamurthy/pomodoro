@@ -6,7 +6,7 @@ body {
 }
 
 .container-fluid {
-    background-color: #ffffff;
+    
     margin: 10px 15px 10px 15px;
     height: 500px;
 }
@@ -136,7 +136,7 @@ button:focus {
 #options button {
     text-align: center;
     width: 130px;
-    height: 100px;
+    height: 50px;
     background-color: grey;
 }
 
@@ -154,4 +154,24 @@ button:focus {
 span {
     font-size: 25px;
     padding: 10px 8px 10px 8px;
+}
+
+.center {
+    margin: auto;
+    width: 60%;
+    border:3px solid #8AC007;
+    padding: 10px;
+}
+
+html, body, .container {
+    height: 100%;
+}
+.container {
+    display: table;
+    vertical-align: middle;
+  background-color: red;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
 }
