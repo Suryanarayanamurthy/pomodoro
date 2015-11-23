@@ -6,7 +6,7 @@ body {
 }
 
 .container-fluid {
-    background-color: red;
+    
     margin: 10px 15px 10px 15px;
     height: 500px;
 }
@@ -169,6 +169,7 @@ html, body, .container {
 .container {
     display: table;
     vertical-align: middle;
+  background-color: red;
 }
 .vertical-center-row {
     display: table-cell;
