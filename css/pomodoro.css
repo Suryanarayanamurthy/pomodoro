@@ -169,7 +169,7 @@ html, body, .container {
 .container {
     display: table;
     vertical-align: middle;
-  background-color: red;
+  background-color: firebrick;
 }
 .vertical-center-row {
     display: table-cell;
