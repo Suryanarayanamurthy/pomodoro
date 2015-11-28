@@ -5,12 +5,15 @@ body {
     font-family: Droid Sans;
 }
 
+/*
 .container-fluid {
 
     margin: 10px 15px 10px 15px;
     height: 500px;
 }
+*/
 
+/*
 h1 {
     font-family: 'Droid Sans';
     font-size: 24px;
@@ -20,7 +23,9 @@ h1 {
     line-height: 26.4px;
     text-align: center;
 }
+*/
 
+/*
 .row {
     font-family: 'Droid Sans';
     font-size: 24px;
@@ -30,18 +35,28 @@ h1 {
     line-height: 26.4px;
     text-align: center;
 }
+*/
 
+/*
 h3 {
     font-family: 'Droid Sans';
     font-size: 24px;
     text-align: center;
     line-height: 15.4px;
 }
+*/
+
+h3, span, b {
+    color: aqua;
+    font-size: 24px;
+}
 
 a {
     color: blue;
     text-decoration: underline;
 }
+
+
 
 a:hover {
     opacity: 1;
@@ -124,7 +139,7 @@ button:focus {
 }
 
 #session button {
-    width: 41px;
+    width: 40px;
     height: 25px;
     text-align: center;
     text-decoration: none;
@@ -133,6 +148,7 @@ button:focus {
     background-color: grey;
 }
 
+
 #options button {
     text-align: center;
     width: 130px;
@@ -140,6 +156,7 @@ button:focus {
     background-color: grey;
 }
 
+/*
 #break,
 #session {
     width: 130px;
@@ -155,6 +172,7 @@ span {
     font-size: 25px;
     padding: 10px 8px 10px 8px;
 }
+*/
 
 .center {
     margin: auto;

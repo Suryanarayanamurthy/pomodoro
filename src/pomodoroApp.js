@@ -3,8 +3,10 @@ var app = angular.module('PomodoroApp', ['ngRoute']);
 app.controller("AppController", function($scope, $interval, $timeout) {
   $scope.breaktime =5;
   $scope.worktime =25;
+  $scope.longBreaktime =15;
   $scope.minutes=25;
   $scope.seconds=0;
+  $scope.pomoNum=1;
 
   var timeLeft = $scope.worktime * 60;
   var secession = "work";
@@ -20,17 +22,32 @@ app.controller("AppController", function($scope, $interval, $timeout) {
     timeLeft -= 1;
     if(secession == "work" && timeLeft <= 0)
     {
-      secession = "play";
-      timeLeft = $scope.breaktime * 60;
-      	audio.play();
+        $scope.pomoNum++;
+        if($scope.pomoNum >= 4)
+            {
+                secession = "playHard";
+                timeLeft = $scope.longBreaktime * 60;                        
+            }
+        else{
+                secession = "play";
+                timeLeft = $scope.breaktime * 60;
+            }
+        audio.play();
     }
-    else if(secession == "play" && timeLeft <= 0)
+    else if(secession == "play"  && timeLeft <= 0)
     {
-      secession = "work";
-      timeLeft = $scope.worktime * 60;
-      audio.play();
+        secession = "work";
+        timeLeft = $scope.worktime * 60;
+        audio.play();
     }
-   };
+      else if( secession =="playHard" && timeLeft <= 0)
+          {
+              secession = "work";
+              timeLeft = $scope.worktime * 60;
+              $scope.pomoNum =1;
+              audio.play();
+          }
+};
 
   $scope.play = function() {
     promise = $interval(ShowTime,1000,0);
@@ -41,16 +58,14 @@ app.controller("AppController", function($scope, $interval, $timeout) {
   };
   $scope.reset = function()
   {
-    $interval.cancel(promise);
+  $interval.cancel(promise);
   $scope.breaktime =5;
   $scope.worktime =25;
   $scope.minutes=25;
   $scope.seconds=00;
-
-   timeLeft = $scope.worktime * 60;
+  timeLeft = $scope.worktime * 60;
   secession = "work";
-}
-
+  }
   $scope.workUpdated = function()
   {
   if(secession == "work")
@@ -58,12 +73,18 @@ app.controller("AppController", function($scope, $interval, $timeout) {
 
   if($scope.worktime < 0) $scope.worktime = 0;
   }
-
   $scope.playUpdated = function()
   {
     if(secession == "play")
     timeLeft = $scope.breaktime *60;
 
     if($scope.breaktime < 0 ) $scope.breaktime =0;
+  }
+  $scope.playHardUpdated = function()
+  {
+      if(secession == "playHard")
+          timeLeft =$scope.longBreaktime *60;
+      
+      if($scope.longBreaktime < 0 ) $scope.longBreaktime =0;
   }
 });
