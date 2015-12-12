@@ -1,5 +1,5 @@
 # pomodoro
-free codecamp project
+
 
 App used to improve productivity, 
 
